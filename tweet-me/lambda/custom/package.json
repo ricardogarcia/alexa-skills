@@ -1,5 +1,5 @@
 {
-  "name": "tweet-about",
+  "name": "tweet-me",
   "version": "1.0.0",
   "description": "allows alexa to tweet about a phrase",
   "main": "index.js",
