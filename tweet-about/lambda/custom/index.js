@@ -8,7 +8,7 @@ const LaunchRequestHandler = {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speechText = 'Welcome, you can say hashtag phrase. Go ahead and try!';
+        const speechText = 'Welcome, just speak the hashtag your interested in. For example Friday Feeling!';
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
@@ -26,9 +26,7 @@ const HashtagIntentHandler = {
         const phrase = slotValues.hashtag.synonym;
         const twitPromise = Promise.promisify(twitterResponse);
         const speechText = await twitPromise(phrase);
-        return handlerInput.responseBuilder
-        .speak(speechText)
-        .withSimpleCard('#', speechText)
+        return handlerInput.responseBuilder.speak(speechText).withSimpleCard('#', speechText)
         .getResponse();
     }
 };
@@ -125,7 +123,7 @@ exports.handler = Alexa.SkillBuilders.custom()
 
 const twitterResponse = (phrase,callback) => {
     const trimmedPhrase = phrase.trim().replace(/ /g,"");// remove spaces inbetween so phrase looks like a real hashtag #FridayFeeling
-    twitter.getSearch({'q':'#'+trimmedPhrase,'count': 1,result_type:'popular',lang:'en'}, function(error){console.log({error})}, function (data) {
+    twitter.getSearch({'q':trimmedPhrase,'count': 1,result_type:'popular',lang:'en'}, function(error){console.log({error})}, function (data) {
     	const statuses = JSON.parse(data).statuses;
     	console.log({statuses});
     	const status = statuses[0] || {};
