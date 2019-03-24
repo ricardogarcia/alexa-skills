@@ -8,22 +8,22 @@ const LaunchRequestHandler = {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speechText = 'Welcome, just speak the hashtag your interested in. For example Friday Feeling!';
+        const speechText = 'Speak the phrase your interested in. For example Friday Feeling!';
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
             .getResponse();
     }
 };
-const HashtagIntentHandler = {
+const TweetAboutIntentHandler = {
     canHandle(handlerInput) {
         return handlerInput.requestEnvelope.request.type === 'IntentRequest'
-            && handlerInput.requestEnvelope.request.intent.name === 'HashtagIntent';
+            && handlerInput.requestEnvelope.request.intent.name === 'TweetAboutIntent';
     },
     async handle(handlerInput) {
         const filledSlots = handlerInput.requestEnvelope.request.intent.slots;
         const slotValues = getSlotValues(filledSlots);
-        const phrase = slotValues.hashtag.synonym;
+        const phrase = slotValues.phrase.synonym;
         const twitPromise = Promise.promisify(twitterResponse);
         const speechText = await twitPromise(phrase);
         return handlerInput.responseBuilder.speak(speechText).withSimpleCard('Tweet About', speechText)
@@ -110,7 +110,7 @@ const ErrorHandler = {
 exports.handler = Alexa.SkillBuilders.custom()
     .addRequestHandlers(
         LaunchRequestHandler,
-        HashtagIntentHandler,
+        TweetAboutIntentHandler,
         HelpIntentHandler,
         CancelAndStopIntentHandler,
         SessionEndedRequestHandler,
@@ -122,8 +122,7 @@ exports.handler = Alexa.SkillBuilders.custom()
 // 2. Helper Functions ============================================================================
 
 const twitterResponse = (phrase,callback) => {
-    const trimmedPhrase = phrase.trim().replace(/ /g,"");// remove spaces inbetween so phrase looks like a real hashtag #FridayFeeling
-    twitter.getSearch({'q':trimmedPhrase,'count': 1,result_type:'popular',lang:'en'}, function(error){console.log({error})}, function (data) {
+    twitter.getSearch({'q':phrase,'count': 1,result_type:'popular',lang:'en'}, function(error){console.log({error})}, function (data) {
     	const statuses = JSON.parse(data).statuses;
     	console.log({statuses});
     	const status = statuses[0] || {};

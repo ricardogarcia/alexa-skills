@@ -1,7 +1,7 @@
 {
-  "name": "hashtag",
+  "name": "Tweet About",
   "version": "1.0.0",
-  "description": "allows alexa to tweet about a hashtag",
+  "description": "allows alexa to tweet about a phrase",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
