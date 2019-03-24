@@ -1,5 +1,5 @@
 {
-  "name": "Tweet About",
+  "name": "tweet-about",
   "version": "1.0.0",
   "description": "allows alexa to tweet about a phrase",
   "main": "index.js",
@@ -12,8 +12,8 @@
     "ask-sdk-core": "^2.0.7",
     "ask-sdk-model": "^1.4.1",
     "aws-sdk": "^2.326.0",
-    "qs": "5.2.0",
-    "oauth": "*",
-    "bluebird": "^3.5.3"
+    "bluebird": "^3.5.3",
+    "oauth": "^0.9.15",
+    "qs": "5.2.0"
   }
 }
