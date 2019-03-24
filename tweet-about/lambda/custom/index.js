@@ -26,7 +26,7 @@ const HashtagIntentHandler = {
         const phrase = slotValues.hashtag.synonym;
         const twitPromise = Promise.promisify(twitterResponse);
         const speechText = await twitPromise(phrase);
-        return handlerInput.responseBuilder.speak(speechText).withSimpleCard('#', speechText)
+        return handlerInput.responseBuilder.speak(speechText).withSimpleCard('Tweet About', speechText)
         .getResponse();
     }
 };
