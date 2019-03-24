@@ -1,0 +1,39 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "hashtag",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "HashtagIntent",
+          "slots": [
+            {
+              "name": "hashtag",
+              "type": "AMAZON.Corporation"
+            }
+          ],
+          "samples": [
+            "{hashtag}"
+          ]
+        }
+      ],
+      "types": []
+    }
+  },
+  "version": "4"
+}

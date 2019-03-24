@@ -1,0 +1,49 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": ""
+        },
+        "interfaces": []
+      }
+    },
+    "privacyAndCompliance": {
+      "locales": {
+        "en-US": {}
+      },
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false
+    },
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "name": "hashtag",
+          "smallIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/87c8/d8f1d0cd7c5a466dba67f389c23fc68b/APP_ICON?versionId=YFNaiTegEBHxTkja38ZytG0AgnHE6qsx&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1553473219&Signature=mjNOgHDveEWy0dRRhyOHj009u1s%3D",
+          "largeIconUri": "https://s3.amazonaws.com/CAPS-SSE/echo_developer/58ca/e34006b654c4476a80dcb6c330796d05/APP_ICON_LARGE?versionId=fyF1VSlD6VZ86bKrH.nWUF8I0Dn2Fptl&AWSAccessKeyId=AKIAJFEYRBGIHK2BBYKA&Expires=1553473219&Signature=VtlxQH3mm6kxnO2XjPiIdOBYA4o%3D",
+          "summary": "hashtag tells you the most popular tweet with that hashtag",
+          "description": "Hashtag searches Twitter for the most popular tweet with the hashtag phrase you give it. For example, if you tell Alexa: \"Ask hashtag Friday Feeling\" she'll tell you the most popular tweet that contains that hashtag.",
+          "examplePhrases": [
+            "Alexa, ask hashtag Friday Feeling",
+            "Alexa, ask hashtag Apple",
+            "Alexa, ask hashtag March Madness"
+          ],
+          "keywords": [
+            "hashtag",
+            "twitter",
+            "tweet",
+            "tweets"
+          ],
+          "updatesDescription": "First version!"
+        }
+      },
+      "isAvailableWorldwide": true,
+      "testingInstructions": "Test by saying Alexa, ask hashtag {phrase}. E.g. ask hashtag alexa, ask hashtag amazon, ask hashtag fresh, ask hashtag Friday Feeling",
+      "category": "NOVELTY",
+      "distributionCountries": []
+    }
+  }
+}

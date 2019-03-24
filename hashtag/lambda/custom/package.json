@@ -1,0 +1,19 @@
+{
+  "name": "hashtag",
+  "version": "1.0.0",
+  "description": "allows alexa to tweet about a hashtag",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ricardo Garcia",
+  "license": "MIT",
+  "dependencies": {
+    "ask-sdk-core": "^2.0.7",
+    "ask-sdk-model": "^1.4.1",
+    "aws-sdk": "^2.326.0",
+    "qs": "5.2.0",
+    "oauth": "*",
+    "bluebird": "^3.5.3"
+  }
+}
