@@ -8,7 +8,7 @@ const LaunchRequestHandler = {
         return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
     },
     handle(handlerInput) {
-        const speechText = 'Speak the phrase your interested in. For example Friday Feeling!';
+        const speechText = 'Say search followed by the word or phrase you\'re interested in. For example search love!';
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
@@ -26,7 +26,9 @@ const TweetAboutIntentHandler = {
         const phrase = slotValues.phrase.synonym;
         const twitPromise = Promise.promisify(twitterResponse);
         const speechText = await twitPromise(phrase);
-        return handlerInput.responseBuilder.speak(speechText).withSimpleCard('Tweet About', speechText)
+        return handlerInput.responseBuilder
+        .speak(speechText)
+        .withSimpleCard('Tweet Me', speechText)
         .getResponse();
     }
 };
@@ -36,7 +38,7 @@ const HelpIntentHandler = {
             && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
     },
     handle(handlerInput) {
-        const speechText = 'You can say hello to me! How can I help?';
+        const speechText = 'You can say search and then the word or phrase your interested in! For example search apple';
 
         return handlerInput.responseBuilder
             .speak(speechText)
